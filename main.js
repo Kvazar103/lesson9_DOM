@@ -380,8 +380,46 @@ inputForm.onsubmit=function (){
     }
 }
 
-
 // *** Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
 
+let d=document.createElement("div")
+let firstInput=document.createElement('input')
+let secondInput=document.createElement('input')
+let thirdInput=document.createElement('input')
+let specialButton=document.createElement('button')
+document.body.appendChild(d)
+d.append(firstInput,secondInput,thirdInput,specialButton)
+
+
+
+d.className="the last"
+d.style.width=`700px`
+d.style.height=`700px`
+d.style.border=`2px solid black`
+specialButton.style.width=`100px`
+specialButton.style.height=`20px`
+specialButton.innerText=`click on me`
+firstInput.type="number"
+secondInput.type="number"
+
+
+specialButton.onclick=()=>{
+    let table=document.createElement('table')
+    d.appendChild(table)
+
+    for (let i=0;i<firstInput.value;i++){
+        let tr=document.createElement("tr")
+        tr.innerText=thirdInput.value
+        table.appendChild(tr)
+        tr.innerText=null
+
+        for (let j=0;j<secondInput.value;j++){
+            let td=document.createElement("td")
+            td.innerText=thirdInput.value
+            table.appendChild(td)
+        }
+    }
+
+}
